@@ -1,26 +1,5 @@
-in order to do data analysis in Python,
-we should first tell you a little bit about
-the main packages relevant to analysis in Python.
-A Python library is a collection of functions and methods
-that allow you to perform lots of
-actions without writing any code.
-The libraries usually contain built-in modules
-providing different functionalities
-which you can use directly.
-There are extensive libraries
-offering a broad range of facilities.
-We have divided the Python data
-analysis libraries into three groups.
-The first group is called Scientific Computing Libraries.
-Pandas offers data structure and tools for
-effective data manipulation and analysis.
-It provides fast access to structured data.
-The primary instrument of Pandas is
-a two dimensional table
-consisting of column and row labels,
-which are called a data frame.
-It is designed to provide easy indexing functionality.
-The NumPy library uses arrays for its inputs and outputs.
+in order to do data analysis in Python, we should first tell you a little bit about the main packages relevant to analysis in Python. A Python library is a collection of functions and methods that allow you to perform lots of actions without writing any code. The libraries usually contain built-in modules providing different functionalities which you can use directly.
+There are extensive libraries offering a broad range of facilities. We have divided the Python data analysis libraries into three groups. The first group is called Scientific Computing Libraries. Pandas offers data structure and tools for effective data manipulation and analysis. It provides fast access to structured data. The primary instrument of Pandas is a two dimensional table consisting of column and row labels, which are called a data frame. It is designed to provide easy indexing functionality. The NumPy library uses arrays for its inputs and outputs.
 It can be extended to objects for matrices,
 and with minor coding changes,
 developers can perform fast array processing.
@@ -55,3 +34,14 @@ Statsmodels is also
 a Python module that allows users to explore data,
 estimate statistical models,
 and perform statistical tests. 
+to create a diagram
+import matplotlib.pyplot as plt
+import numpy as np
+xpts = np.array([1,10])
+ypts = np.array([10,33])
+plt.plot(xpts, ypts)
+plt.show()
+to create a list
+import numpy
+m = numpy.array((1,3,5,8,9,0))
+print(m)
