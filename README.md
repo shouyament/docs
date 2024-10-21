@@ -45,3 +45,19 @@ to create a list
 import numpy
 m = numpy.array((1,3,5,8,9,0))
 print(m)
+to open a csv file
+pip install pandas
+url= "excel test-csv.csv"
+df = pd.read_csv(url)
+print(df)
+or
+url= "excel test-csv.csv"
+df = pd.read_csv(url, header=None)
+print(df)
+to show a n lines
+pip install pandas
+url= "excel test-csv.csv"
+df = pd.read_csv(url)
+df.head(n)
+to show the last n rows
+df.tail(n)
