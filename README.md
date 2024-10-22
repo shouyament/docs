@@ -85,4 +85,6 @@ ax.axvline(df['number'].median(), color='green')
 ax = df['number'].plot(kind='hist', figsize=(14,6))
 ax.set_ylabel('age')
 ax.set_xlabel('name')
-
+#for example if we want to add 2 years to our age colomn we use the following code
+tr["age"] = tr["age"]+2
+print(tr)
