@@ -64,8 +64,8 @@ df.tail(n)
 import pandas as pd
 info = pd.read_csv('excel test-csv.csv')
 print(info)
-#to analyse a single colomn
-info["name_of_the colomn"].describe()
+#to analyse a single column
+info["name_of_the column"].describe()
 info.shape
 info.info()
 #for statistics
@@ -85,6 +85,14 @@ ax.axvline(df['number'].median(), color='green')
 ax = df['number'].plot(kind='hist', figsize=(14,6))
 ax.set_ylabel('age')
 ax.set_xlabel('name')
-#for example if we want to add 2 years to our age colomn we use the following code
+#for example if we want to add 2 years to our age column we use the following code
 tr["age"] = tr["age"]+2
 print(tr)
+#to drop a ligne or a column with an empty value we use the code
+pip install pandas
+import pandas as pd
+url= 'excel1.csv'
+df=pd.read_csv(url)
+print (df)
+df.dropna(subset=['prefer color'], axis=0, inplace= True) axis =0 drops the entire ligne, axis =1 drops the entire column
+print (df)#we only print to see the results
