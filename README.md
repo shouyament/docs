@@ -64,6 +64,11 @@ df.tail(n)
 import pandas as pd
 info = pd.read_csv('excel test-csv.csv')
 print(info)
+#to analyse a single colomn
+info["name_of_the colomn"].describe()
 info.shape
 info.info()
+#for statistics
 info.describe()
+#TO SHOW THIS STATISTICS IN A DIAGRAM 
+info["number"].plot(kind='box', vert=False, figsize=(1,20))
