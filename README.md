@@ -72,3 +72,7 @@ info.info()
 info.describe()
 #TO SHOW THIS STATISTICS IN A DIAGRAM 
 info["number"].plot(kind='box', vert=False, figsize=(1,20))
+info["number"].plot(kind='box', vert=False, figsize=(1,20))
+#TO SHOW THIS STATISTICS as a curve
+pip install spicy
+info["number"].plot(kind='density', figsize=(1,20))
