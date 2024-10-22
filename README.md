@@ -61,3 +61,9 @@ df = pd.read_csv(url)
 df.head(n)
 to show the last n rows
 df.tail(n)
+import pandas as pd
+info = pd.read_csv('excel test-csv.csv')
+print(info)
+info.shape
+info.info()
+info.describe()
