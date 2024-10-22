@@ -75,4 +75,14 @@ info["number"].plot(kind='box', vert=False, figsize=(1,20))
 info["number"].plot(kind='box', vert=False, figsize=(1,20))
 #TO SHOW THIS STATISTICS as a curve
 pip install spicy
+pip install matplotlib 
 info["number"].plot(kind='density', figsize=(1,20))
+#to show the median and the mean in the curve this is the code for the curve+ median and the mean
+ax = df['number'].plot(kind='density', figsize=(14,1))
+ax.axvline(df['number'].mean(), color='red')
+ax.axvline(df['number'].median(), color='green')
+#TO SHOW THIS STATISTICS IN A DIAGRAM 
+ax = df['number'].plot(kind='hist', figsize=(14,6))
+ax.set_ylabel('age')
+ax.set_xlabel('name')
+
