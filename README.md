@@ -96,3 +96,13 @@ df=pd.read_csv(url)
 print (df)
 df.dropna(subset=['prefer color'], axis=0, inplace= True) axis =0 drops the entire ligne, axis =1 drops the entire column
 print (df)#we only print to see the results
+Replace the entries "?" with NaN entry from Numpy library	
+df = df.replace("?", np.nan)
+Retrieve the data types of the data frame columns	
+pf.dtypes
+Retrieve the statistical description of the data set. Defaults use is for only numerical data types. Use include="all" to create summary for all variables	
+df.describe() #default use df.describe(include="all")
+Retrieve the summary of the data set being used, from the data frame	
+df.info()
+Save the processed data frame to a CSV file with a specified path
+df.to_csv(<output CSV path>)
