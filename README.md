@@ -106,3 +106,12 @@ Retrieve the summary of the data set being used, from the data frame
 df.info()
 Save the processed data frame to a CSV file with a specified path
 df.to_csv(<output CSV path>)
+#to access a column
+pt= pd{'name of the collumn'}
+and now you can amend it as you want
+#for dealing with missing values
+check with the data collection source
+drop the missing values
+leave it as missing data
+to remove data we use the following code
+use dataframes.dropna()
