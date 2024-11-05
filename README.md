@@ -165,3 +165,977 @@ Syntax:
 
 1
 sns.distplot(X,hist=False)
+
+ 
+
+
+
+Play
+
+
+00:00
+08:41
+Mute
+
+Settings
+Chi-Square Test for Categorical Variables
+Introduction
+The chi-square test is a statistical method used to determine if there is a significant association between two categorical variables. This test is widely used in various fields, including social sciences, marketing, and healthcare, to analyze survey data, experimental results, and observational studies.
+
+Concept
+The chi-square test is a non-parametric statistical method used to examine the association between two categorical variables. It evaluates whether the frequencies of observed outcomes significantly deviate from expected frequencies, assuming the variables are independent. The test is grounded in the chi-square distribution, which is applied to count data and helps in determining if any observed deviations could have arisen by random chance.
+
+Null Hypothesis and Alternative Hypothesis
+The chi-square test involves formulating two hypotheses:
+
+Null Hypothesis 
+(
+𝐻
+0
+)
+(H 
+0
+​
+ ) - Assumes that there is no association between the categorical variables, implying that any observed differences are due to random chance.
+
+Alternative Hypothesis 
+(
+H
+1
+)
+(H 
+1
+​
+ ) - Assumes that there is a significant association between the variables, indicating that the observed differences are not due to chance alone.
+
+Formula
+The chi-square statistic is calculated using the formula:
+
+χ
+2
+=
+∑
+(
+O
+i
+−
+E
+i
+)
+2
+E
+i
+χ 
+2
+ =∑ 
+E 
+i
+​
+ 
+(O 
+i
+​
+ −E 
+i
+​
+ ) 
+2
+ 
+​
+ 
+
+where
+O
+i
+O 
+i
+​
+  is the observed frequency for category 
+i
+i.
+E
+i
+E 
+i
+​
+  is the expected frequency for category 
+i
+i, calculated as:
+
+E
+i
+=
+(
+r
+o
+w
+ 
+t
+o
+t
+a
+l
+×
+c
+o
+l
+u
+m
+n
+ 
+t
+o
+t
+a
+l
+)
+g
+r
+a
+n
+d
+ 
+t
+o
+t
+a
+l
+E 
+i
+​
+ = 
+grand total
+(row total×column total)
+​
+ 
+
+The sum is taken over all cells in the contingency table.
+
+The calculated chi-square statistic is then compared to a critical value from the chi-square distribution table. This table provides critical values for different degrees of freedom 
+(
+d
+f
+)
+(df) and significance levels 
+(
+α
+)
+(α).
+
+The degrees of freedom for the test are calculated as:
+
+d
+f
+=
+(
+r
+−
+1
+)
+×
+(
+c
+−
+1
+)
+df=(r−1)×(c−1)
+
+where 
+r
+r is the number of rows and 
+c
+c is the number of columns in the table.
+
+Applications
+Market Research: Analyzing the association between customer demographics and product preferences.
+Healthcare: Studying the relationship between patient characteristics and disease incidence.
+Social Sciences: Investigating the link between social factors (e.g., education level) and behavioral outcomes (e.g., voting patterns).
+Education: Examining the connection between teaching methods and student performance.
+Quality Control: Assessing the association between manufacturing conditions and product defects.
+Practical Example - Weak Correlation
+Suppose a researcher wants to determine if there is an association between gender (male, female) and preference for a new product (like, dislike). The researcher surveys 100 people and records the following data:
+
+Category	Like	Dislike	Total
+Male	20	30	50
+Female	25	25	50
+Total	45	55	100
+Step 1: Calculate Expected Frequencies
+
+Using the formula for expected frequencies:
+
+E
+M
+a
+l
+e
+,
+L
+i
+k
+e
+=
+(
+50
+×
+45
+)
+100
+=
+22.5
+E 
+Male,Like
+​
+ = 
+100
+(50×45)
+​
+ =22.5
+E
+M
+a
+l
+e
+,
+D
+i
+s
+l
+i
+k
+e
+=
+(
+50
+×
+55
+)
+100
+=
+27.5
+E 
+Male,Dislike
+​
+ = 
+100
+(50×55)
+​
+ =27.5
+E
+F
+e
+m
+a
+l
+e
+,
+L
+i
+k
+e
+=
+(
+50
+×
+45
+)
+100
+=
+22.5
+E 
+Female,Like
+​
+ = 
+100
+(50×45)
+​
+ =22.5
+E
+F
+e
+m
+a
+l
+e
+,
+D
+i
+s
+l
+i
+k
+e
+=
+(
+50
+×
+55
+)
+100
+=
+27.5
+E 
+Female,Dislike
+​
+ = 
+100
+(50×55)
+​
+ =27.5
+
+Step 2: Compute Chi-Square Statistic
+
+χ
+2
+=
+(
+20
+−
+22.5
+)
+2
+22.5
++
+(
+30
+−
+27.5
+)
+2
+27.5
++
+(
+25
+−
+22.5
+)
+2
+22.5
++
+(
+25
+−
+27.5
+)
+2
+27.5
+χ 
+2
+ = 
+22.5
+(20−22.5) 
+2
+ 
+​
+ + 
+27.5
+(30−27.5) 
+2
+ 
+​
+ + 
+22.5
+(25−22.5) 
+2
+ 
+​
+ + 
+27.5
+(25−27.5) 
+2
+ 
+​
+ 
+
+χ
+2
+=
+(
+2.5
+)
+2
+22.5
++
+(
+2.5
+)
+2
+27.5
++
+(
+2.5
+)
+2
+22.5
++
+(
+2.5
+)
+2
+27.5
+χ 
+2
+ = 
+22.5
+(2.5) 
+2
+ 
+​
+ + 
+27.5
+(2.5) 
+2
+ 
+​
+ + 
+22.5
+(2.5) 
+2
+ 
+​
+ + 
+27.5
+(2.5) 
+2
+ 
+​
+ 
+
+χ
+2
+=
+6.25
+22.5
++
+6.25
+27.5
++
+6.25
+22.5
++
+6.25
+27.5
+χ 
+2
+ = 
+22.5
+6.25
+​
+ + 
+27.5
+6.25
+​
+ + 
+22.5
+6.25
+​
+ + 
+27.5
+6.25
+​
+ 
+
+χ
+2
+=
+0.277
++
+0.227
++
+0.277
++
+0.227
+χ 
+2
+ =0.277+0.227+0.277+0.227
+
+χ
+2
+=
+1.008
+χ 
+2
+ =1.008
+
+Step 3: Determine Degrees of Freedom
+
+d
+f
+=
+(
+2
+−
+1
+)
+×
+(
+2
+−
+1
+)
+=
+1
+df=(2−1)×(2−1)=1
+
+Step 4: Interpret the Result
+
+Using a chi-square distribution table, we compare the calculated chi-square value (1.008) with the critical value at one degree of freedom and a significance level (e.g., 0.05). The critical value, as determined from chi-square distribution tables, is approximately 3.841.
+
+Since 1.008 < 3.841, we fail to reject the null hypothesis. Thus, there is no significant association between gender and product preference in this sample.
+
+Practical Example - Strong Association
+Consider a study investigating the relationship between smoking status (smoker, non-smoker) and the incidence of lung disease (disease, no disease). The researcher collects data from 200 individuals and records the following information:
+
+Category	Disease	No Disease	Total
+Smoker	50	30	80
+Non-Smoker	20	100	120
+Total	70	130	200
+Step 1: Calculate Expected Frequencies
+
+Using the formula for expected frequencies:
+
+E
+S
+m
+o
+k
+e
+r
+,
+D
+i
+s
+e
+a
+s
+e
+=
+(
+80
+×
+70
+)
+200
+=
+28
+E 
+Smoker,Disease
+​
+ = 
+200
+(80×70)
+​
+ =28
+E
+S
+m
+o
+k
+e
+r
+,
+N
+o
+ 
+D
+i
+s
+e
+a
+s
+e
+=
+(
+80
+×
+130
+)
+200
+=
+52
+E 
+Smoker,No Disease
+​
+ = 
+200
+(80×130)
+​
+ =52
+E
+N
+o
+n
+−
+S
+m
+o
+k
+e
+r
+,
+D
+i
+s
+e
+a
+s
+e
+=
+(
+120
+×
+70
+)
+200
+=
+42
+E 
+Non−Smoker,Disease
+​
+ = 
+200
+(120×70)
+​
+ =42
+E
+N
+o
+n
+−
+S
+m
+o
+k
+e
+r
+,
+N
+o
+ 
+D
+i
+s
+e
+a
+s
+e
+=
+(
+120
+×
+130
+)
+200
+=
+78
+E 
+Non−Smoker,No Disease
+​
+ = 
+200
+(120×130)
+​
+ =78
+
+Step 2: Compute Chi-Square Statistic
+
+χ
+2
+=
+(
+50
+−
+28
+)
+2
+28
++
+(
+30
+−
+52
+)
+2
+52
++
+(
+20
+−
+42
+)
+2
+42
++
+(
+100
+−
+78
+)
+2
+78
+χ 
+2
+ = 
+28
+(50−28) 
+2
+ 
+​
+ + 
+52
+(30−52) 
+2
+ 
+​
+ + 
+42
+(20−42) 
+2
+ 
+​
+ + 
+78
+(100−78) 
+2
+ 
+​
+ 
+
+χ
+2
+=
+(
+22
+)
+2
+28
++
+(
+22
+)
+2
+52
++
+(
+22
+)
+2
+42
++
+(
+22
+)
+2
+78
+χ 
+2
+ = 
+28
+(22) 
+2
+ 
+​
+ + 
+52
+(22) 
+2
+ 
+​
+ + 
+42
+(22) 
+2
+ 
+​
+ + 
+78
+(22) 
+2
+ 
+​
+ 
+
+χ
+2
+=
+484
+28
++
+484
+52
++
+484
+42
++
+484
+78
+χ 
+2
+ = 
+28
+484
+​
+ + 
+52
+484
+​
+ + 
+42
+484
+​
+ + 
+78
+484
+​
+ 
+
+χ
+2
+=
+17.29
++
+9.31
++
+11.52
++
+6.21
+χ 
+2
+ =17.29+9.31+11.52+6.21
+
+χ
+2
+=
+44.33
+χ 
+2
+ =44.33
+
+Step 3: Determine Degrees of Freedom
+
+d
+f
+=
+(
+2
+−
+1
+)
+×
+(
+2
+−
+1
+)
+=
+1
+df=(2−1)×(2−1)=1
+
+Step 4: Interpret the Result
+
+Using a chi-square distribution table, we compare the calculated chi-square value (44.33) with the critical value at one degree of freedom and a significance level (e.g., 0.05), approximately 3.841. Since 44.33 > 3.841, we reject the null hypothesis. This indicates a significant association between smoking status and the incidence of lung disease in this sample.
+
+Conclusion
+The chi-square test is a powerful tool for analyzing the relationship between categorical variables. By comparing observed and expected frequencies, researchers can determine if there is a statistically significant association, providing valuable insights in various fields of study.
+
+Congratulations! You have completed this lesson. At this point in the course, you know: 
+
+Tools like the 'describe' function in pandas can quickly calculate key statistical measures like mean, standard deviation, and quartiles for all numerical variables in your data frame. 
+Congratulations! You have completed this lesson. At this point in the course, you know: 
+
+Tools like the 'describe' function in pandas can quickly calculate key statistical measures like mean, standard deviation, and quartiles for all numerical variables in your data frame. 
+
+Use the 'value_counts' function to summarize data into different categories for categorical data. 
+
+Box plots offer a more visual representation of the data's distribution for numerical data, indicating features like the median, quartiles, and outliers.
+
+Scatter plots are excellent for exploring relationships between continuous variables, like engine size and price, in a car data set.
+
+Use Pandas' 'groupby' method to explore relationships between categorical variables.
+
+Use pivot tables and heat maps for better data visualizations.
+
+Correlation between variables is a statistical measure that indicates how the changes in one variable might be associated with changes in another variable.
+
+When exploring correlation, use scatter plots combined with a regression line to visualize relationships between variables.
+
+Visualization functions like regplot, from the seaborn library, are especially useful for exploring correlation.
+
+The Pearson correlation, a key method for assessing the correlation between continuous numerical variables, provides two critical values—the coefficient, which indicates the strength and direction of the correlation, and the P-value, which assesses the certainty of the correlation.
+
+A correlation coefficient close to 1 or -1 indicates a strong positive or negative correlation, respectively, while one close to zero suggests no correlation.
+
+For P-values, values less than .001 indicate strong certainty in the correlation, while larger values indicate less certainty. Both the coefficient and P-value are important for confirming a strong correlation.
+
+Heatmaps provide a comprehensive visual summary of the strength and direction of correlations among multiple variables.
+
+
+
+
+Use the 'value_counts' function to summarize data into different categories for categorical data. 
+
+Box plots offer a more visual representation of the data's distribution for numerical data, indicating features like the median, quartiles, and outliers.
+
+Scatter plots are excellent for exploring relationships between continuous variables, like engine size and price, in a car data set.
+
+Use Pandas' 'groupby' method to explore relationships between categorical variables.
+
+Use pivot tables and heat maps for better data visualizations.
+
+Correlation between variables is a statistical measure that indicates how the changes in one variable might be associated with changes in another variable.
+
+When exploring correlation, use scatter plots combined with a regression line to visualize relationships between variables.
+
+Visualization functions like regplot, from the seaborn library, are especially useful for exploring correlation.
+
+The Pearson correlation, a key method for assessing the correlation between continuous numerical variables, provides two critical values—the coefficient, which indicates the strength and direction of the correlation, and the P-value, which assesses the certainty of the correlation.
+
+A correlation coefficient close to 1 or -1 indicates a strong positive or negative correlation, respectively, while one close to zero suggests no correlation.
+
+For P-values, values less than .001 indicate strong certainty in the correlation, while larger values indicate less certainty. Both the coefficient and P-value are important for confirming a strong correlation.
+
+Heatmaps provide a comprehensive visual summary of the strength and direction of correlations among multiple variables.
+
+Correlation matrix created using all the attributes of the dataset.
+df.corr()
+
+Correlation matrix created using specific attributes of the dataset.
+df[['attribute1','attribute2',...]].corr()
+
+	Create a scatter plot using the data points of the dependent variable along the x-axis and the independent variable along the y-axis.
+ from matlplotlib import pyplot as 
+plt plt.scatter(df[['attribute_1']],df[['attribute_2']])
+
+Uses the dependent and independent variables in a Pandas data frame to create a scatter plot with a generated linear regression line for the data.
+import seaborn as sns 
+sns.regplot(x='attribute_1',y='attribute_2', data=df)
+
+Create a box-and-whisker plot that uses the pandas dataframe, the dependent, and the independent variables.
+import seaborn as sns 
+sns.boxplot(x='attribute_1',y='attribute_2', data=df)
+
+Create a group of different attributes of a dataset to create a subset of the data.
+df_group = df[['attribute_1','attribute_2',...]]
+
+a. Group the data by different categories of an attribute, displaying the average value of numerical attributes with the same category.
+b. Group the data by different categories of multiple attributes, displaying the average value of numerical attributes with the same category.
+a.
+df_group = 
+df_group.groupby(['attribute_1'],as_index=False).mean() 
+b. 
+df_group = df_group.groupby(['attribute_1', 
+'attribute_2'],as_index=False).mean()
+
+Create Pivot tables for better representation of data based on parameters
+grouped_pivot = 
+df_group.pivot(index='attribute_1',columns='attribute_2')
+
+Create a heatmap image using a PsuedoColor plot (or pcolor) using the pivot table as data.
+from matlplotlib import pyplot as plt 
+plt.pcolor(grouped_pivot, cmap='RdBu')
+
+Calculate the Pearson Coefficient and p-value of a pair of attributes
+From scipy import stats 
+pearson_coef,p_value=stats.pearsonr(df['attribute_1'], 
+df['attribute_2'])
+
+
