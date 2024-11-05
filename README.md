@@ -1138,4 +1138,55 @@ From scipy import stats
 pearson_coef,p_value=stats.pearsonr(df['attribute_1'], 
 df['attribute_2'])
 
+Import linear_model from scikit-learn
+from sklearn.linear_model import LinearRegression
+Create a Linear Regression Object using the constructor:
+lm=LinearRegression()
 
+we define the predictor variable and target variable
+x = df [ [ 'highway-mpg' ] ]
+y = df  [ 'price' ]
+then use lm.fit(x, y) to fit the model, i.e find the parameters b0 and b1
+we can obtain a prediction
+Yhat=lm.predict(x)
+
+Regression plot
+import seaborn as sns
+sns.regplot(x="highway-mpg", y="price", dta=df)
+plt.ylim(0, )
+
+Residual plot
+sns.residplot(df['highway-mpg'], df['price'])
+
+Distribution plots
+import seaborn as sns
+ax1=sns.distplot(df['price'], h
+
+ist=False, color="r", label="Actual Value")
+sns.distplot(Yhat, hist=False, color="b", label="Fitted Values", ax=ax1)
+
+calculate polynomial of 3rd order
+f=np.polyfit(x,y,3)
+p=np.polyld(f)
+print(p)
+
+ploynomial regression with more than one dimension
+from sklearn.preprocessing import PolynomialFeatures
+pr=PolynomialFeatures(degree=2, include_bias=False)
+x_polly=pr.fit_transform(x[['horsepower', 'curb-weight']])
+
+Pre-processing
+from sklearn.preprocessing import StandardScaler
+SCALE=StandardScaler()
+SCALE.fit(x_data[['horsepower', 'highway-mpg']])
+
+Pipelines
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+input=[('polynomial', PolynomailFeature(degree=2),('scale', StadardScaler()),...
+('Model', LinearRegression())]
+pipe=Pipeline(Input)
+Pipe.fir(df['horsepower', 'curb-weight', 'engine-size', 'highway-mpg']],y)
+yhat=Pipe.predict(X[['horsepower', 'curb-weight', 'engine-size', 'highway-mpg']])
