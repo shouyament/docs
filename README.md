@@ -1190,3 +1190,20 @@ input=[('polynomial', PolynomailFeature(degree=2),('scale', StadardScaler()),...
 pipe=Pipeline(Input)
 Pipe.fir(df['horsepower', 'curb-weight', 'engine-size', 'highway-mpg']],y)
 yhat=Pipe.predict(X[['horsepower', 'curb-weight', 'engine-size', 'highway-mpg']])
+
+import linear_model from scikit-learn
+from sklearn.linear_model import LinearRegression
+Creat a Linear Regression Object using the constructor:
+lm=LinearRegression()
+Fitting  simple linear model
+X = df[['highway-mpg']]
+Y = df['price']
+Yhat=im.predict(X)
+
+Fitting a multiple linear model estimator
+we can extract the for 4 predictor variables and store them in the variable z
+z = df[['horsepower', 'curb-weight', 'engine-size', 'highway-mpg']]
+then train the model as before:
+lm.fit(Z, df['price'])
+we can also obtain a prediction
+Yhat=lm.predict(X)
