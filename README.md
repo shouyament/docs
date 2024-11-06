@@ -1207,3 +1207,20 @@ then train the model as before:
 lm.fit(Z, df['price'])
 we can also obtain a prediction
 Yhat=lm.predict(X)
+
+import seaborn as sns
+sns.regplot(x='highway-mpg', y='price', data=df)
+plt.ylim(0, )
+
+import seaborn as sns
+sns.residplot(df['highway-mpg'], df['price'])
+
+import seaborn as sns
+ax1=sns.distplot(df['price'], hist=False,  color='r', label='actual value')
+sns.distplot(Yhat, hist=False, color='b', label='fitted values', ax=ax1)
+
+Polynomial Regression
+Calculate Polynomial of 3rd order
+f=np.polyfit(x,y,3)
+p=np.polyld(f)
+print(p)
