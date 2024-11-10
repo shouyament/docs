@@ -1262,3 +1262,14 @@ we can train the pipeline object
 Pipe.fit(df[['horsepower', 'curb-weight', 'engine-size', 'highway-mpg']], y)
 yhat=Pipe.predict(X[['horsepower', 'curb-weight', 'engine-size', 'highway-mpg']])
 and we get the predicted value
+
+
+pip install numpy
+pip install matplotlib
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.model_selection import LinearRegression
+X = np.random.rand(100,1)
+Y= 5+5*X + np.random.rand(100, 1)
+plt.scatter(X, Y )
+plt.show()
