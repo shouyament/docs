@@ -1224,3 +1224,41 @@ Calculate Polynomial of 3rd order
 f=np.polyfit(x,y,3)
 p=np.polyld(f)
 print(p)
+
+plolynomial regression with more than one dimension
+the 'preprocessing' library in scikit-learn:
+from sklearn.prepocessing import PolynomialFeatures
+pr=PloynomialFeatures(degree=2, include_bias=False)
+x_polly=pr.fit_transform(x[['horsepower', 'curb-weight']])
+pr=PolynomialFeatures(degree=2)
+pr.fit_transform([1,2}, include_bias=False)
+
+plolynomial regression with more than one dimension
+the 'preprocessing' library in scikit-learn:
+from sklearn.preprocessing import PolynomialFeatures
+pr=PolynomialFeatures(degree=2, include_bias=False)
+x_polly=pr.fit_transform(x[['horsepower', 'curb-weight']])
+**hada ghir bach t9adi bih scale hitach y9dro ykom=no l2ar9am kbira**
+pre-processing
+For example we can Normalize the each feature simultaneously:
+from sklearn.preprocessing import StandardScaler
+Scale=StandardScaler()
+Scale.fit(x_data[['horsepower', 'highway-mpg']])
+x-scale=SCALE.transform(x_data[['horsepower', 'highway-mpg']])
+**we can simply our code by using pipeline libarary**
+
+there are many steps to getting a prediction
+Normalization, polynomial transform, linear regression the first two perfom transformation the last one perform prediction.
+Pipelines
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+Input=[('polynomial', PolynomialFeature(degree=2)), ('Scale', StandardScaler()),.....('Model', LinearRegression())]
+Pipeline constructor
+pipe=Pipeline(Input)
+
+we can train the pipeline object
+Pipe.fit(df[['horsepower', 'curb-weight', 'engine-size', 'highway-mpg']], y)
+yhat=Pipe.predict(X[['horsepower', 'curb-weight', 'engine-size', 'highway-mpg']])
+and we get the predicted value
