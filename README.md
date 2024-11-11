@@ -1268,10 +1268,85 @@ pip install numpy
 pip install matplotlib
 pip install scikit-learn
 from sklearn.linear_model import LinearRegression
+pip install scipy
+conda install scipy
+pip install -U scikit-learn
+conda install -c conda-forge scikit-learn
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.model_selection import LinearRegression
 X = np.random.rand(100,1)
 Y= 5+5*X + np.random.rand(100, 1)
 plt.scatter(X, Y )
+plt.show()
+
+
+Linear Regression
+Scatter plot
+import matplotlib.pyplot as plt
+
+x = [5,7,8,7,2,17,2,9,4,11,12,9,6]
+y = [99,86,87,88,111,86,103,87,94,78,77,85,86]
+
+plt.scatter(x, y)
+plt.show()
+
+Polynomial Regressiom
+import numpy
+import matplotlib.pyplot as plt
+
+x = [1,2,3,5,6,7,8,9,10,12,13,14,15,16,18,19,21,22]
+y = [100,90,80,60,60,55,60,65,70,70,75,76,78,79,90,99,99,100]
+
+mymodel = numpy.poly1d(numpy.polyfit(x, y, 3))
+
+myline = numpy.linspace(1, 22, 100)
+
+plt.scatter(x, y)
+plt.plot(myline, mymodel(myline))
+plt.show()
+
+Implement Simple Linear Regression in Python
+In this example, we will use the salary data concerning the experience of employees. In this dataset, we have two columns YearsExperience and Salary
+
+Step 1: Import the required python packages
+We need Pandas for data manipulation, NumPy for mathematical calculations, and MatplotLib, and Seaborn for visualizations. Sklearn libraries are used for machine learning operations
+# Import libraries
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from pandas.core.common import random_state
+from sklearn.linear_model import LinearRegression
+
+Step 2: Load the dataset
+Download the dataset from here and upload it to your notebook and read it into the pandas dataframe.
+# Get dataset
+df_sal = pd.read_csv('/content/Salary_Data.csv')
+df_sal.head()
+
+Step 3: Data analysis
+Now that we have our data ready, let's analyze and understand its trend in detail. To do that we can first describe the data below -
+# Describe data
+df_sal.describe()
+# Data distribution
+plt.title('Salary Distribution Plot')
+sns.distplot(df_sal['Salary'])
+plt.show()
+
+# Relationship name and number
+plt.scatter(df_sal['YearsExperience'], df_sal['Salary'], color = 'lightcoral')
+plt.title('Salary vs Experience')
+plt.xlabel('Years of Experience')
+plt.ylabel('Salary')
+plt.box(False)
+plt.show()
+
+# Relationship name and number
+plt.scatter(df_sal['name'], df_sal['number'], color = 'lightcoral')
+plt.title('Name and number')
+plt.xlabel('name')
+plt.ylabel('number')
+plt.box(False)
 plt.show()
