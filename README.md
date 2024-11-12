@@ -1343,10 +1343,191 @@ plt.ylabel('Salary')
 plt.box(False)
 plt.show()
 
-# Relationship name and number
-plt.scatter(df_sal['name'], df_sal['number'], color = 'lightcoral')
+# Relationship price and number
+plt.scatter(df_sal['price'], df_sal['number'], color = 'lightcoral')
 plt.title('Name and number')
-plt.xlabel('name')
+plt.xlabel('price')
 plt.ylabel('number')
 plt.box(False)
 plt.show()
+
+
+# Splitting variables
+X = df_sal.iloc[:, :1]  # independent
+y = df_sal.iloc[:, 1:]  # dependent
+
+# Splitting dataset into test/train
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
+
+# Regressor model
+regressor = LinearRegression()
+regressor.fit(X_train, y_train)
+# Prediction result
+y_pred_test = regressor.predict(X_test)     # predicted value of y_test
+y_pred_train = regressor.predict(X_train)   # predicted value of y_train
+Step 7: Plot the training and test results
+Its time to test our predicted results by plotting graphs
+
+Plot training set data vs predictions
+First we plot the result of training sets (X_train, y_train) with X_train and predicted value of y_train (regressor.predict(X_train))
+
+# Prediction on training set
+plt.scatter(X_train, y_train, color = 'lightcoral')
+plt.plot(X_train, y_pred_train, color = 'firebrick')
+plt.title('number vs price (Training Set)')
+plt.xlabel('number')
+plt.ylabel('price')
+plt.legend(['X_train/Pred(y_test)', 'X_train/y_train'], title = 'price/Exp', loc='best', facecolor='white')
+plt.box(False)
+plt.show()
+
+Plot test set data vs predictions
+Secondly, we plot the result of test sets (X_test, y_test) with X_train and predicted value of y_train (regressor.predict(X_train))
+
+# Prediction on test set
+plt.scatter(X_test, y_test, color = 'lightcoral')
+plt.plot(X_train, y_pred_train, color = 'firebrick')
+plt.title('Salary vs Experience (Test Set)')
+plt.xlabel('Years of Experience')
+plt.ylabel('Salary')
+plt.legend(['X_train/Pred(y_test)', 'X_train/y_train'], title = 'Sal/Exp', loc='best', facecolor='white')
+plt.box(False)
+plt.show()
+
+# Prediction on test set
+plt.scatter(X_test, y_test, color = 'lightcoral')
+plt.plot(X_train, y_pred_train, color = 'firebrick')
+plt.title('number vs price (Test Set)')
+plt.xlabel('number')
+plt.ylabel('price')
+plt.legend(['X_train/Pred(y_test)', 'X_train/y_train'], title = 'Sal/Exp', loc='best', facecolor='white')
+plt.box(False)
+plt.show()
+
+# Regressor coefficients and intercept
+print(f'Coefficient: {regressor.coef_}')
+print(f'Intercept: {regressor.intercept_}')
+
+**you can use the following codes as they mean the same thing
+import numpy as np or from numpy import*   **
+
+
+pip install numpy
+from numpy import *
+x=array([0,1,2,3,4,5,6])
+y=array([0.6,1,0.2,0.23,0.4,5,1.5])
+pip install scipy
+pl = polyfit(x,y,1)
+print(pl)
+pip install matplotlib
+from matplotlib.pyplot import *
+if you don't have ipython you need to use the following code %matplotlib inline
+plot(x,y,'o')
+**now we want to see a linear fit along with the data**
+plot (x,polyval(pl, x))
+**now we want to show all the data which means we will show two slopes**
+**in red is the linear fit**
+plot(x,y,'o')
+plot (x,polyval(pl, x), 'r-')
+
+p2 = polyfit(x,y,2)
+p3 = polyfit(x,y,3)
+plot(x,y,'o')
+plot (x,polyval(pl, x), 'r-')
+plot (x,polyval(p2, x), 'b--')
+plot (x,polyval(p3, x), 'p-')
+plot (x,polyval(p4, x), 'm:')
+
+plot(x,y,'o')
+xp=linspace(-2,6,15)
+plot (xp,polyval(pl, xp), 'r-')
+plot (xp,polyval(p2, xp), 'b--')
+
+**predict a value and calculate the square **
+yfit = p2[0] * x +p2[1]
+print(yfit)
+print(y)
+yresid =y-yfit
+SSresid = sum(pow(yresid,2))
+SStotal = len(y) * var(y)
+rsq = 1-SSresid/SStotal
+print(rsq)
+
+from scipy.stats import *
+slope,intercept,r_value,p_value,std_err = linregress(x,y)
+print(pow(r_value,2))
+print(p_value)
+
+Now that we've seen how we can evaluate a model by using visualization, we want to numerically evaluate our models. Let's look at some of the measures that we use for in-sample evaluation. These measures are a way to numerically determine how good the model fits on our data. Two important measures that we often use to determine the fit of a model are mean squared, error, MSE and R-squared. To measure the MSE, we find the difference between the actual value y and the predicted value y Hat then square it. In this case, the actual value is 150. The predicted value is 50. Subtracting these points, we get 100. We then square the number. We then take the mean or average of all the errors by adding them all together and dividing by the number of samples. To find the MSE in Python, we can import the mean_squared_error from sk.learn.metrics. The mean_squared_error function gets two inputs, the actual value of target variable and the predicted value of target variable. R squared is also called the coefficient of determination. It's a measure to determine how close the data is to the fitted regression line. So how close is our actual data to our estimated model? Think about it as comparing a regression model to a simple model, i.e., the mean of the data points. If the variable x is a good predictor, our model should perform much better than just the mean. In this example, the average of the data points y bar is six. Coefficient of determination R squared is one minus the ratio of the MSE of the regression line divided by the MSE of the average of the data points. For the most part, it takes values between zero and one. Let's look at a case where the line provides a relatively good fit. The blue line represents the regression line. The blue squares represent the MSE of the regression line. The red line represents the average value of the data points. The red squares represent the MSE of the red line. We see the area of the blue squares is much smaller than the area of the red squares. In this case, because the line is a good fit, the mean squared error is small. Therefore the numerator is small. The mean squared error of the average of the data is large as the denominator is large. A small number divided by a larger number is an even smaller number. Taken to an extreme, this value tends to zero. If we plug in this value from the previous slide for R squared, we get a value near one. This means the line is a good fit for the data. Here is an example of a line that does not fit the data well. If we just examine the area of the red squares compared to the blue squares, we see the area is almost identical. The ratio of the areas is close to one. In this case, the R squared is near zero. This line performs about the same as just using the average of the data points. Therefore, this line did not perform well. We find the R squared value in Python by using the score method in the linear regression object. From the value that we get from this example, we can say that approximately 49.659% of the variation of price is explained by this simple linear model. Your R squared value is usually between zero and one. If your r square is negative, it can be due to overfitting that we will discuss in the next module. [MUSIC]
+
+in python we can measure the NSE as follows:
+from sklearn.metrics import mean_squared_error
+mean_squared_error(df['price'], Y_predict_simple_fit)
+x=df[['highway-mpg]]
+y =df[['price']]
+lm.fit(x,y)
+lm.score(x,y)
+
+do the predicted values make sense?
+let's predict the price of a car with 30 highway-mpg
+first we train the model
+lm.fit (df['highway-mpg', df['prices'])
+lm.predict(np.array(30.0).reshape(-1,1))
+lm.coef_
+
+do the predicted values make sense?
+import numpy as np
+we use the numpy function arrange to generate a sequence from 1 to 100
+new_input=np.arange(1,101,1).reshape(-1,1)
+we can predict new values
+yhat=lm.predict(new_input)
+
+In this video, our final topic will be on prediction and decision making. How can we determine if our model is correct? The first thing you should do is make sure your model results make sense. You should always use visualization, numerical measures for evaluation and comparing between different models. Let's look at an example of prediction. If you recall, we train the model using the fit method. Now we want to find out what the price would be for a car that has a highway miles per gallon of 30. Plugging this value into the predict method gives us a resulting price of $13,771.30. This seems to make sense for example, the value is not negative, extremely high, or extremely low. We can look at the coefficients by examining the coef_ attribute. If you recall, the expression for the simple linear model that predicts price from highway miles per gallon, this value corresponds to the multiple of the highway miles per gallon feature. As such, an increase of one unit in highway miles per gallon, the value of the car decreases approximately $821. This value also seems reasonable. Sometimes your model will produce values that don't make sense. For example, if we plot the model out for highway miles per gallon in the ranges of 0-100, we get negative values for the price. This could be because the values in that range are not realistic. The linear assumption is incorrect, or we don't have data for cars in that range. In this case, it is unlikely that a car will have fuel mileage in that range, so our model seems valid. To generate a sequence of values in a specified range, import NumPy, then use the NumPy a range function to generate the sequence. The sequence starts at one and increments by one until we reach 100. The first parameter is the starting point of the sequence. The second parameter is the end point plus one of the sequence. The final parameter is the step size between elements in the sequence. In this case, it's one. We increment the sequence one step at a time, from 1 to 2 and so on. We can use the output to predict new values. The output is a NumPy array, many of the values are negative. Using a regression plot to visualize your data is the first method you should try. See the labs for examples of how to plot polynomial regression. For this example, the effect of the independent variable is evident in this case. The data trends down as the dependent variable increases. The plot also shows some non linear behavior. Examining the residual plot, we see in this case, the residuals have a curvature, suggesting non linear behavior. A distribution plot is a good method for multiple linear regression. For example, we see the predicted values for prices in the range from 30,000-50,000 are inaccurate. This suggests a non linear model may be more suitable or we need more data in this range. The mean square error is perhaps the most intuitive numerical measure for determining if a model is good or not. Let's see how different measures of mean square error impact the model. The figure shows an example of a mean square error of 3,495. This example has a mean square error of 3,652. The final plot has a mean square error of 12,870. As the square error increases, the targets get further from the predicted points. As we discussed, R^2 is another popular method to evaluate your model. In this plot, we see the target points in red and the predicted line in blue, and R^2 of 0.9986. The model appears to be a good fit. This model has an R^2 of 0.9226, there still is a strong linear relationship. R^2 of 0.806, the data is a lot more messy, but the linear relation is evident. R^2 of 0.61, the linear function is harder to see, but on closer inspection, we see the data is increasing with the independent variable. An acceptable value for R^2 depends on what field you're studying. Some authors suggest a value should be equal to or greater than 0.10. Comparing MLR and SLR is a lower MSE, always implying a better fit? Not necessarily. MSE for an MLR model will be smaller than the MSE for an SLR model since the errors of the data will decrease when more variables are included in the model. Polynomial regression will also have a smaller MSE than regular regression. A similar inverse relationship holds for R^2. In the next section, we'll look at better ways to evaluate the model.
+
+Lesson Summary
+Congratulations! You have completed this lesson. At this point in the course, you know: 
+
+Linear regression refers to using one independent variable to make a prediction.
+
+You can use multiple linear regression to explain the relationship between one continuous target y variable and two or more predictor x variables.
+
+Simple linear regression, or SLR, is a method used to understand the relationship between two variables, the predictor independent variable x and the target dependent variable y.
+
+Use the regplot and residplot functions in the Seaborn library to create regression and residual plots, which help you identify the strength, direction, and linearity of the relationship between your independent and dependent variables.
+
+When using residual plots for model evaluation, residuals should ideally have zero mean, appear evenly distributed around the x-axis, and have consistent variance. If these conditions are not met, consider adjusting your model.
+
+Use distribution plots for models with multiple features: Learn to construct distribution plots to compare predicted and actual values, particularly when your model includes more than one independent variable. Know that this can offer deeper insights into the accuracy of your model across different ranges of values.
+
+The order of the polynomials affects the fit of the model to your data. Apply Python's polyfit function to develop polynomial regression models that suit your specific dataset.
+
+To prepare your data for more accurate modeling, use feature transformation techniques, particularly using the preprocessing library in scikit-learn, transform your data using polynomial features, and use the modules like StandardScaler to normalize the data.
+
+Pipelines allow you to simplify how you perform transformations and predictions sequentially, and you can use pipelines in scikit-learn to streamline your modeling process.
+
+You can construct and train a pipeline to automate tasks such as normalization, polynomial transformation, and making predictions.
+
+To determine the fit of your model, you can perform sample evaluations by using the Mean Square Error (MSE), using Python’s mean_squared_error function from scikit-learn, and using the score method to obtain the R-squared value.
+
+A model with a high R-squared value close to 1 and a low MSE is generally a good fit, whereas a model with a low R-squared and a high MSE may not be useful.
+
+Be alert to situations where your R-squared value might be negative, which can indicate overfitting. 
+
+When evaluating models, use visualization and numerical measures and compare different models.
+
+The mean square error is perhaps the most intuitive numerical measure for determining whether a model is good.
+
+A distribution plot is a suitable method for multiple linear regression.
+
+An acceptable r-squared value depends on what you are studying and your use case.
+
+To evaluate your model’s fit, apply visualization, methods like regression and residual plots, and numerical measures such as the model's coefficients for sensibility: 
+
+Use Mean Square Error (MSE) to measure the average of the squares of the errors between actual and predicted values and examine R-squared to understand the proportion of the variance in the dependent variable that is predictable from the independent variables.
+
+When analyzing residual plots, residuals should be randomly distributed around zero for a good model. In contrast, a residual plot curve or inaccuracies in certain ranges suggest non-linear behavior or the need for more data.
+
+
+
+
+
