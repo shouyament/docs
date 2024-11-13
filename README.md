@@ -1527,7 +1527,20 @@ Use Mean Square Error (MSE) to measure the average of the squares of the errors 
 
 When analyzing residual plots, residuals should be randomly distributed around zero for a good model. In contrast, a residual plot curve or inaccuracies in certain ranges suggest non-linear behavior or the need for more data.
 
+function training_test_split()
+from sklearn.model_selection important train_test_split
+x_train, x_test,y_train,y_test=train_test_split(x_data, y_data,test_size=0.3,random_state=0)
+x_ data:features or indepent variables
+y_data:dataset target:df['price']
+x_train, y_train:parts of available data as training set
+x_test, y_test:parts of available data as training set
+test_size:percentage of the data for testing(here 30%)
 
-
-
-
+generalization error is a measure of how well our data does at predicting previously unseen data
+cross validation
+most common out-of-sample evaluation metrics
+more effective use of data (each observation is used for both training and testing)
+to call the cross validation we use the following code
+from sklearn.model_selection import cross_val_score
+scores= cross_val_score(lr, x_data, y_data, cv=3)
+lr in above means linear regression
